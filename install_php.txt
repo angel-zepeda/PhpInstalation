@@ -1,0 +1,32 @@
+
+sudo apt-get install apache2
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+
+sudo apt-get install php libapache2-mod-php
+sudo systemctl restart apache2
+
+sudo apt-get install phpmyadmin php-mbstring php-gettext -y
+
+sudo vim /etc/apache2/sites-available/000-default.conf
+DocumentRoot /home/angelzepeda/www
+<Directory /home/angelzepeda/www>                                      
+  Require all granted                                                  
+  Options Indexes FollowSymLinks Includes ExecCGI                      
+  AllowOverride All                                                    
+  Order deny,allow                                                     
+  Allow from all                                                       
+</Directory>  
+
+sudo service apache2 restart
+sudo service mysql start
+sudo mysql -u root -p
+
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('Angel_05');
+
+GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost';
+
+FLUSH PRIVILEGES;
+
+CREATE USER angelzepeda IDENTIFIED by 'Angel_05';
+
