@@ -22,11 +22,15 @@ sudo service apache2 restart
 sudo service mysql start
 sudo mysql -u root -p
 
+uninstall plugin validate_password;
+CREATE USER angelzepeda IDENTIFIED by 'Angel_05';
+
+(Opcional)
 SET PASSWORD FOR 'root'@'localhost' = PASSWORD('Angel_05');
 
 GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost';
 
 FLUSH PRIVILEGES;
 
-CREATE USER angelzepeda IDENTIFIED by 'Angel_05';
+
 
