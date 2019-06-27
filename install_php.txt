@@ -33,4 +33,8 @@ GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost';
 FLUSH PRIVILEGES;
 
 
+(NO APARECE PHPMYADMIN)
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin.conf
+sudo service apache2 reload
 
